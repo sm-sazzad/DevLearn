@@ -1,5 +1,7 @@
 import React from 'react';
 import { DataFatch } from '../data';
+import Link from 'next/link';
+import { RxCross1, RxCross2 } from 'react-icons/rx';
 
 const page = async ({ params }: { params: Promise<{ course: string }> }) => {
 
@@ -19,9 +21,9 @@ const page = async ({ params }: { params: Promise<{ course: string }> }) => {
 
                         {/* Badge */}
                         <div className="absolute right-6 top-6">
-                            <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-sm font-medium text-indigo-400">
-                                {post.badge}
-                            </span>
+                            <Link href={`/all`}>
+                                <RxCross1 className='text-2xl font-bold' />
+                            </Link>
                         </div>
 
                         {/* Icon */}
@@ -102,7 +104,7 @@ const page = async ({ params }: { params: Promise<{ course: string }> }) => {
                                 </p>
                             </div>
 
-                            <button className="rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-500">
+                            <button className="rounded-xl cursor-pointer bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-500">
                                 Start Learning →
                             </button>
 

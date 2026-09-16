@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import Banner from "./Components/Banner";
 import PupularCard from "./Components/PupularCard";
-import Navbar from "./Components/Navbar";
+import WhyDevLearn from "./Components/WhyDevlearn";
+import LearningPaths from "./Components/RoadMap";
 
 export const metadata: Metadata = {
     title: "Home"
@@ -10,9 +11,10 @@ export const metadata: Metadata = {
 const Home = () => {
     return (
         <div>
-            <Navbar />
             <Banner />
             <PupularCard />
+            <WhyDevLearn />
+            <LearningPaths />
         </div>
     );
 };

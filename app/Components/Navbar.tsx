@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
-// import logo from './NavLogo.png'
 
 
 const Navbar = () => {
@@ -11,10 +10,10 @@ const Navbar = () => {
     const [active, setActive] = useState<"home" | "about" | "popular" | "">("")
 
     const link = <>
-        <li><Link href='/#home' onClick={() => setActive("home")} className={`${active === "home" ? "text-indigo-500 font-semibold" : ""}`}>Home</Link></li>
-        <li><Link onClick={() => setActive("popular")} className={`${active === "popular" ? "text-indigo-500 font-semibold" : ""}`} href='/#popular'>Popular Course</Link></li>
+        <li><Link href='/#home' onClick={() => setActive("home")} className={`${pathname === '/all' || pathname === "/login" ? "" : active === "home" ? "text-indigo-500 font-semibold" : ""}`}>Home</Link></li>
+        <li><Link onClick={() => setActive("popular")} className={`${pathname === '/all' ? "" : active === "popular" ? "text-indigo-500 font-semibold" : ""}`} href='/#popular'>Popular Course</Link></li>
         <li><Link href='/all' className={`${pathname === "/all" ? "text-indigo-500 font-semibold" : ''}`}>All Couses</Link></li>
-        <li><Link onClick={() => setActive("about")} className={`${active === "about" ? "text-indigo-500 font-semibold" : ""}`} href='/#about'>About</Link></li>
+        <li><Link onClick={() => setActive("about")} className={`${pathname === '/all' || pathname === "/login" ? "" : active === "about" ? "text-indigo-500 font-semibold" : ""}`} href='/#about'>About</Link></li>
     </>
 
     return (
@@ -27,8 +26,13 @@ const Navbar = () => {
                     {link}
                 </ul>
                 <ul className='flex gap-2'>
-                    <button className='py-2 px-4 bg-stone-900 rounded-3xl cursor-pointer'>Sign in</button>
-                    <button className='py-2 px-4 bg-stone-700 rounded-3xl cursor-pointer'>Sign Up</button>
+                    <Link href={'/login'}>
+                        <button className='py-2 px-4 bg-stone-900 rounded-3xl cursor-pointer'>Sign in</button>
+                    </Link>
+                    <Link href={'/sign-up'}>
+                        <button className='py-2 px-4 bg-stone-700 rounded-3xl cursor-pointer'>Sign Up</button>
+                    </Link>
+
                 </ul>
             </div>
         </nav>
